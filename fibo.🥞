@@ -1,0 +1,119 @@
+#define MAX_SIZE 32
+#define FIBO_NUM 10
+#define WORD_SIZE 8
+#define H_WORD_SIZE 4
+
+///// queue stuff
+/*
+typedef struct {
+    uint64_t items[MAX_SIZE];
+    uint32_t head;
+    uint32_t tail;
+} queue;
+*/
+
+#define get_i_item(queue, i, item)      \
+    var i_addr = queue + i * WORD_SIZE; \
+    var item = lds {1} i_addr;          \
+
+#define set_i_item(queue, i, item)      \
+    var i_addr = queue + i * WORD_SIZE; \
+    stw i_addr, item;                   \
+
+#define get_head(queue, head)                       \
+    var head_addr = queue + MAX_SIZE * WORD_SIZE;   \
+    var temp = @base;                               \
+    @transfer32(head_addr, 1, temp, 1);            \
+    var head = lds {1} temp;                        \
+
+#define set_head(queue, head)                       \
+    var temp = @base;                               \
+    stw temp, head;                                 \
+    var head_addr = queue + MAX_SIZE * WORD_SIZE;   \
+    @transfer32(temp, 1, head_addr, 1);            \
+
+#define get_tail(queue, tail)                                       \
+    var tail_addr = queue + MAX_SIZE * WORD_SIZE + H_WORD_SIZE;     \
+    var temp = @base;                                               \
+    @transfer32(tail_addr, 1, temp, 1);                            \
+    var tail = lds {1} temp;                                        \
+
+#define set_tail(queue, tail)                                       \
+    var temp = @base;                                               \
+    stw temp, tail;                                                 \
+    var tail_addr = queue + MAX_SIZE * WORD_SIZE + H_WORD_SIZE;     \
+    @transfer32(temp, 1, tail_addr, 1);                            \
+
+///// some helper functions
+#define pnk_modulo(result, a, b)    \
+    var result = a & (b - 1);       \
+
+fun isEmpty(1 queue) {
+    get_head(queue, head)
+    get_tail(queue, tail)
+    pnk_modulo(h, head, MAX_SIZE)
+    pnk_modulo(t, tail, MAX_SIZE)
+    return (h == t);
+}
+
+fun isFull(1 queue) {
+    get_head(queue, head)
+    get_tail(queue, tail)
+    pnk_modulo(h, head, MAX_SIZE)
+    pnk_modulo(t, (tail + 1), MAX_SIZE)
+    return (h == t);
+}
+
+export fun enqueue(1 queue, 1 value) {
+    var 1 isfull = isFull(queue);
+    if (isfull) {
+        return -1;
+    }
+    get_tail(queue, tail)
+    set_i_item(queue, tail, value)
+    pnk_modulo(t, (tail + 1), MAX_SIZE)
+    set_tail(queue, t)
+    return 0;
+}
+
+export fun dequeue(1 queue) {
+    var 1 isempty = isEmpty(queue);
+    if (isempty) {
+        return -1;
+    }
+    get_head(queue, head)
+    get_i_item(queue, head, item)
+    pnk_modulo(h, (head + 1), MAX_SIZE)
+    set_head(queue, h)
+    return item;
+}
+
+fun main() {
+    // assume that @base + WORD_SIZE sits the queue struct
+    var queue = @base + WORD_SIZE;
+    set_head(queue, 0)
+    set_tail(queue, 0)
+
+    enqueue(queue, 0);
+    enqueue(queue, 1);
+
+    // var i = 2;
+    // while (true) {
+    //     if (i > FIBO_NUM)  {
+    //         break;
+    //     }
+    //     var 1 a = dequeue(queue);
+    //     var 1 b = dequeue(queue);
+    //     var next = a + b;
+    //     enqueue(queue, b);
+    //     enqueue(queue, next);
+    //     i = i + 1;
+    // }
+
+    // // dequeue twice
+    // var 1 dump_this = dequeue(queue);
+    // var 1 fib = dequeue(queue);
+
+    // @print_int(0,fib,0,0);
+    return 0;
+}
