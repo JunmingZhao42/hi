@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 #define MAX_SIZE 32
-#define FIBO_NUM 10
+#define FIBO_NUM 10000
 typedef struct {
     uint64_t items[MAX_SIZE];
     uint32_t head;

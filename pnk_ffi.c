@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FIBO_NUM 10
+#define FIBO_NUM 10000
 #define MAX_SIZE 32
 
 typedef struct {
