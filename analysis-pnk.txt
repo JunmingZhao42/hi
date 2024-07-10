@@ -1,12 +1,12 @@
 --------------------------------------------------------------------------------
-Profile data file 'callgrind.out.227997' (creator: callgrind-3.22.0)
+Profile data file 'callgrind.out.248406' (creator: callgrind-3.22.0)
 --------------------------------------------------------------------------------
 I1 cache: 
 D1 cache: 
 LL cache: 
-Timerange: Basic block 0 - 1119459
+Timerange: Basic block 0 - 1118903
 Trigger: Program termination
-Profiled target:  ./fibopnk (PID 227997, part 1)
+Profiled target:  ./fibopnk (PID 248406, part 1)
 Events recorded:  Ir
 Events shown:     Ir
 Event sort order: Ir
@@ -18,32 +18,32 @@ Auto-annotation:  on
 --------------------------------------------------------------------------------
 Ir                 
 --------------------------------------------------------------------------------
-9,546,807 (100.0%)  PROGRAM TOTALS
+9,484,788 (100.0%)  PROGRAM TOTALS
 
 --------------------------------------------------------------------------------
 Ir                  file:function
 --------------------------------------------------------------------------------
-1,920,048 (20.11%)  pnk_ffi.c:ffitransfer32'2 [/home/puppy/ming/hi/fibopnk]
-1,140,019 (11.94%)  ???:cml_isFull_8'2 [/home/puppy/ming/hi/fibopnk]
-1,060,000 (11.10%)  ???:cml_isEmpty_7'2 [/home/puppy/ming/hi/fibopnk]
-  639,984 ( 6.70%)  pnk_ffi.c:ffitransfer32 [/home/puppy/ming/hi/fibopnk]
-  620,058 ( 6.49%)  ???:cml_enqueue_9'2 [/home/puppy/ming/hi/fibopnk]
-  600,000 ( 6.28%)  ???:cml_dequeue_10'2 [/home/puppy/ming/hi/fibopnk]
-  479,976 ( 5.03%)  ???:cml_enqueue_9 [/home/puppy/ming/hi/fibopnk]
-  460,000 ( 4.82%)  ???:cml_dequeue_10 [/home/puppy/ming/hi/fibopnk]
-  400,000 ( 4.19%)  cake.S:0x0000000000005142 [/home/puppy/ming/hi/fibopnk]
-  399,960 ( 4.19%)  cake.S:0x0000000000005131 [/home/puppy/ming/hi/fibopnk]
-  380,000 ( 3.98%)  ???:cml_isEmpty_7 [/home/puppy/ming/hi/fibopnk]
-  379,981 ( 3.98%)  ???:cml_isFull_8 [/home/puppy/ming/hi/fibopnk]
-  250,001 ( 2.62%)  pnk_ffi.c:main [/home/puppy/ming/hi/fibopnk]
-  220,000 ( 2.30%)  cake.S:cml_dequeue_10'2
-  219,982 ( 2.30%)  cake.S:cml_enqueue_9'2
+1,920,048 (20.24%)  pnk_ffi.c:ffitransfer32'2 [/home/puppy/ming/hi/fibopnk]
+1,120,019 (11.81%)  ???:cml_isFull_8'2 [/home/puppy/ming/hi/fibopnk]
+1,020,000 (10.75%)  ???:cml_isEmpty_7'2 [/home/puppy/ming/hi/fibopnk]
+  639,984 ( 6.75%)  pnk_ffi.c:ffitransfer32 [/home/puppy/ming/hi/fibopnk]
+  620,058 ( 6.54%)  ???:cml_enqueue_9'2 [/home/puppy/ming/hi/fibopnk]
+  600,000 ( 6.33%)  ???:cml_dequeue_10'2 [/home/puppy/ming/hi/fibopnk]
+  479,976 ( 5.06%)  ???:cml_enqueue_9 [/home/puppy/ming/hi/fibopnk]
+  460,000 ( 4.85%)  ???:cml_dequeue_10 [/home/puppy/ming/hi/fibopnk]
+  400,000 ( 4.22%)  cake.S:0x0000000000005142 [/home/puppy/ming/hi/fibopnk]
+  399,960 ( 4.22%)  cake.S:0x0000000000005131 [/home/puppy/ming/hi/fibopnk]
+  380,000 ( 4.01%)  ???:cml_isEmpty_7 [/home/puppy/ming/hi/fibopnk]
+  379,981 ( 4.01%)  ???:cml_isFull_8 [/home/puppy/ming/hi/fibopnk]
+  250,001 ( 2.64%)  pnk_ffi.c:main [/home/puppy/ming/hi/fibopnk]
+  220,000 ( 2.32%)  cake.S:cml_dequeue_10'2
+  219,982 ( 2.32%)  cake.S:cml_enqueue_9'2
    80,002 ( 0.84%)  cake.S:cml_isFull_8'2
    80,000 ( 0.84%)  cake.S:cml_isEmpty_7'2
    40,000 ( 0.42%)  cake.S:cml_isEmpty_7
    39,998 ( 0.42%)  cake.S:cml_isFull_8
    24,495 ( 0.26%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
-   22,033 ( 0.23%)  ./elf/./elf/dl-tunables.c:__GI___tunables_init [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+   20,355 ( 0.21%)  ./elf/./elf/dl-tunables.c:__GI___tunables_init [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
 
 --------------------------------------------------------------------------------
 -- Auto-annotated source: pnk_ffi.c
@@ -67,13 +67,13 @@ Ir
         4 ( 0.00%)      cml_stackend = cml_stack + cml_stack_sz;
         3 ( 0.00%)  }
         .           
-1,120,014 (11.73%)  void ffitransfer32(unsigned char *c, long clen, unsigned char *a, long alen) {
-  480,006 ( 5.03%)      uint32_t value = *(uint32_t *) c;
-  480,006 ( 5.03%)      *(uint32_t *) a = value;
-  480,006 ( 5.03%)  }
-3,019,698 (31.63%)  => ???:cml_isFull_8'2 (19,998x)
-2,920,000 (30.59%)  => ???:cml_isEmpty_7'2 (20,000x)
-      515 ( 0.01%)  => ???:cml_main_6'2 (1x)
+1,120,014 (11.81%)  void ffitransfer32(unsigned char *c, long clen, unsigned char *a, long alen) {
+  480,006 ( 5.06%)      uint32_t value = *(uint32_t *) c;
+  480,006 ( 5.06%)      *(uint32_t *) a = value;
+  480,006 ( 5.06%)  }
+2,999,700 (31.63%)  => ???:cml_isFull_8'2 (19,998x)
+2,880,000 (30.36%)  => ???:cml_isEmpty_7'2 (20,000x)
+      513 ( 0.01%)  => ???:cml_main_6'2 (1x)
         .           
         .           void ffiprint_int(unsigned char *c, long clen, unsigned char *a, long alen) {
         .               // print clen
@@ -84,28 +84,28 @@ Ir
         2 ( 0.00%)      init_pancake_mem();
        18 ( 0.00%)  => pnk_ffi.c:init_pancake_mem (1x)
         1 ( 0.00%)      cml_main();
-      761 ( 0.01%)  => /home/puppy/ming/hi/cake.S:0x0000000000003000 (1x)
+      759 ( 0.01%)  => /home/puppy/ming/hi/cake.S:0x0000000000003000 (1x)
         .           
         2 ( 0.00%)      uintptr_t *heap = (uintptr_t *) cml_heap;
         3 ( 0.00%)      queue *global_queue = (queue *) &heap[1];
         .           
-   30,001 ( 0.31%)      for (int i = 2; i <= FIBO_NUM; i++) {
+   30,001 ( 0.32%)      for (int i = 2; i <= FIBO_NUM; i++) {
    39,996 ( 0.42%)          uint64_t a = dequeue(global_queue);
-2,259,774 (23.67%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (9,999x)
+2,239,776 (23.61%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (9,999x)
    39,996 ( 0.42%)          uint64_t b = dequeue(global_queue);
-2,259,774 (23.67%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (9,999x)
+2,239,776 (23.61%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (9,999x)
    39,996 ( 0.42%)          uint64_t next_fib = a + b;
-   49,995 ( 0.52%)          enqueue(global_queue, b);
-2,319,768 (24.30%)  => /home/puppy/ming/hi/cake.S:0x0000000000005131 (9,999x)
-   49,995 ( 0.52%)          enqueue(global_queue, next_fib);
-2,319,768 (24.30%)  => /home/puppy/ming/hi/cake.S:0x0000000000005131 (9,999x)
+   49,995 ( 0.53%)          enqueue(global_queue, b);
+2,309,769 (24.35%)  => /home/puppy/ming/hi/cake.S:0x0000000000005131 (9,999x)
+   49,995 ( 0.53%)          enqueue(global_queue, next_fib);
+2,309,769 (24.35%)  => /home/puppy/ming/hi/cake.S:0x0000000000005131 (9,999x)
         .               }
         .           
         .               // Dequeue twice to get to the last calculated Fibonacci number
         3 ( 0.00%)      dequeue(global_queue);
-      226 ( 0.00%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (1x)
+      224 ( 0.00%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (1x)
         4 ( 0.00%)      uint64_t fib = dequeue(global_queue);
-      226 ( 0.00%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (1x)
+      224 ( 0.00%)  => /home/puppy/ming/hi/cake.S:0x0000000000005142 (1x)
         .           
         1 ( 0.00%)      return 0;
         2 ( 0.00%)  }
@@ -119,5 +119,5 @@ The following files chosen for auto-annotation could not be found:
 --------------------------------------------------------------------------------
 Ir                 
 --------------------------------------------------------------------------------
-2,810,051 (29.43%)  events annotated
+2,810,051 (29.63%)  events annotated
 

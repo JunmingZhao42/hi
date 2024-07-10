@@ -1,56 +1,56 @@
 --------------------------------------------------------------------------------
-Profile data file 'callgrind.out.228220' (creator: callgrind-3.22.0)
+Profile data file 'callgrind.out.246750' (creator: callgrind-3.22.0)
 --------------------------------------------------------------------------------
-I1 cache: 
-D1 cache: 
-LL cache: 
-Timerange: Basic block 0 - 239515
+I1 cache:
+D1 cache:
+LL cache:
+Timerange: Basic block 0 - 238959
 Trigger: Program termination
-Profiled target:  ./fibo (PID 228220, part 1)
+Profiled target:  ./fibo (PID 246750, part 1)
 Events recorded:  Ir
 Events shown:     Ir
 Event sort order: Ir
 Thresholds:       99
-Include dirs:     
-User annotated:   
+Include dirs:
+User annotated:
 Auto-annotation:  on
 
 --------------------------------------------------------------------------------
-Ir                 
+Ir
 --------------------------------------------------------------------------------
-2,006,693 (100.0%)  PROGRAM TOTALS
+2,004,674 (100.0%)  PROGRAM TOTALS
 
 --------------------------------------------------------------------------------
 Ir                file:function
 --------------------------------------------------------------------------------
-520,000 (25.91%)  fibo.c:dequeue [/home/puppy/ming/hi/fibo]
-520,000 (25.91%)  fibo.c:enqueue [/home/puppy/ming/hi/fibo]
-300,000 (14.95%)  fibo.c:isFull [/home/puppy/ming/hi/fibo]
-280,000 (13.95%)  fibo.c:isEmpty [/home/puppy/ming/hi/fibo]
-250,047 (12.46%)  fibo.c:main [/home/puppy/ming/hi/fibo]
+520,000 (25.94%)  fibo.c:dequeue [/home/puppy/ming/hi/fibo]
+520,000 (25.94%)  fibo.c:enqueue [/home/puppy/ming/hi/fibo]
+300,000 (14.97%)  fibo.c:isFull [/home/puppy/ming/hi/fibo]
+280,000 (13.97%)  fibo.c:isEmpty [/home/puppy/ming/hi/fibo]
+250,047 (12.47%)  fibo.c:main [/home/puppy/ming/hi/fibo]
  24,511 ( 1.22%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
- 22,033 ( 1.10%)  ./elf/./elf/dl-tunables.c:__GI___tunables_init [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+ 20,355 ( 1.02%)  ./elf/./elf/dl-tunables.c:__GI___tunables_init [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
  15,598 ( 0.78%)  ./elf/./elf/dl-reloc.c:_dl_relocate_object [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   9,453 ( 0.47%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   9,368 ( 0.47%)  ./elf/../sysdeps/generic/dl-new-hash.h:_dl_lookup_symbol_x
-  5,916 ( 0.29%)  ./string/../sysdeps/x86_64/multiarch/../multiarch/strcmp-sse2.S:strcmp [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+  5,916 ( 0.30%)  ./string/../sysdeps/x86_64/multiarch/../multiarch/strcmp-sse2.S:strcmp [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   5,688 ( 0.28%)  ./elf/./elf/do-rel.h:_dl_relocate_object
   5,599 ( 0.28%)  ./elf/./elf/dl-lookup.c:check_match [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   3,880 ( 0.19%)  ./elf/../sysdeps/x86_64/dl-machine.h:_dl_relocate_object
   3,096 ( 0.15%)  ./elf/../sysdeps/x86/dl-cacheinfo.h:intel_check_word.constprop.0 [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   2,652 ( 0.13%)  ./elf/./elf/dl-version.c:_dl_check_map_versions [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   2,268 ( 0.11%)  ./elf/../bits/stdlib-bsearch.h:intel_check_word.constprop.0
-  1,803 ( 0.09%)  ./elf/./elf/dl-tunables.h:__GI___tunables_init
+  1,692 ( 0.08%)  ./elf/./elf/dl-tunables.h:__GI___tunables_init
   1,558 ( 0.08%)  ./elf/./elf/dl-load.c:_dl_map_object_from_fd [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   1,148 ( 0.06%)  ./elf/./elf/rtld.c:dl_main [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
   1,003 ( 0.05%)  ./elf/./elf/dl-deps.c:_dl_map_object_deps [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
     774 ( 0.04%)  ./elf/./elf/dl-minimal-malloc.c:__minimal_malloc [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
-    674 ( 0.03%)  ./elf/./elf/dl-cache.c:_dl_cache_libcmp [/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2]
+    650 ( 0.03%)  ./elf/./elf/get-dynamic-info.h:_dl_map_object_from_fd
 
 --------------------------------------------------------------------------------
 -- Auto-annotated source: fibo.c
 --------------------------------------------------------------------------------
-Ir               
+Ir
 
 -- line 6 ----------------------------------------
       .           #define MAX_SIZE 32
@@ -60,65 +60,65 @@ Ir
       .               uint32_t head;
       .               uint32_t tail;
       .           } queue;
-      .           
+      .
  80,000 ( 3.99%)  bool isEmpty(queue *q) {
-160,000 ( 7.97%)      return (q->head % MAX_SIZE) == (q->tail % MAX_SIZE);
- 40,000 ( 1.99%)  }
-      .           
+160,000 ( 7.98%)      return (q->head % MAX_SIZE) == (q->tail % MAX_SIZE);
+ 40,000 ( 2.00%)  }
+      .
  80,000 ( 3.99%)  bool isFull(queue *q) {
-180,000 ( 8.97%)      return ((q->tail + 1) % MAX_SIZE) == (q->head % MAX_SIZE);
- 40,000 ( 1.99%)  }
-      .           
-120,000 ( 5.98%)  void enqueue(queue *q, uint64_t value) {
-100,000 ( 4.98%)      if (isFull(q)) {
-300,000 (14.95%)  => fibo.c:isFull (20,000x)
+180,000 ( 8.98%)      return ((q->tail + 1) % MAX_SIZE) == (q->head % MAX_SIZE);
+ 40,000 ( 2.00%)  }
+      .
+120,000 ( 5.99%)  void enqueue(queue *q, uint64_t value) {
+100,000 ( 4.99%)      if (isFull(q)) {
+300,000 (14.97%)  => fibo.c:isFull (20,000x)
       .                   printf("queue is full\n");
       .                   return;
       .               }
-      .           
-120,000 ( 5.98%)      q->items[q->tail] = value;
+      .
+120,000 ( 5.99%)      q->items[q->tail] = value;
 140,000 ( 6.98%)      q->tail = (q->tail + 1) % MAX_SIZE;
- 40,000 ( 1.99%)  }
-      .           
-100,000 ( 4.98%)  uint64_t dequeue(queue *q) {
-100,000 ( 4.98%)      if (isEmpty(q)) {
-280,000 (13.95%)  => fibo.c:isEmpty (20,000x)
+ 40,000 ( 2.00%)  }
+      .
+100,000 ( 4.99%)  uint64_t dequeue(queue *q) {
+100,000 ( 4.99%)      if (isEmpty(q)) {
+280,000 (13.97%)  => fibo.c:isEmpty (20,000x)
       .                   printf("queue is empty\n");
       .                   return 0;
       .               }
-120,000 ( 5.98%)      uint64_t value = q->items[q->head];
+120,000 ( 5.99%)      uint64_t value = q->items[q->head];
 140,000 ( 6.98%)      q->head = (q->head + 1) % MAX_SIZE;
  20,000 ( 1.00%)      return value;
- 40,000 ( 1.99%)  }
-      .           
+ 40,000 ( 2.00%)  }
+      .
       7 ( 0.00%)  int main() {
      38 ( 0.00%)      queue my_queue = {0};
       1 ( 0.00%)      my_queue.head = 0;
       1 ( 0.00%)      my_queue.tail = 0;
-      .           
+      .
       4 ( 0.00%)      enqueue(&my_queue, 0);  // F(0) = 0
      41 ( 0.00%)  => fibo.c:enqueue (1x)
       4 ( 0.00%)      enqueue(&my_queue, 1);  // F(1) = 1
      41 ( 0.00%)  => fibo.c:enqueue (1x)
-      .           
+      .
  30,001 ( 1.50%)      for (int i = 2; i <= FIBO_NUM; i++) {
- 39,996 ( 1.99%)          uint64_t a = dequeue(&my_queue);
-399,960 (19.93%)  => fibo.c:dequeue (9,999x)
- 39,996 ( 1.99%)          uint64_t b = dequeue(&my_queue);
-399,960 (19.93%)  => fibo.c:dequeue (9,999x)
- 39,996 ( 1.99%)          uint64_t next_fib = a + b;
+ 39,996 ( 2.00%)          uint64_t a = dequeue(&my_queue);
+399,960 (19.95%)  => fibo.c:dequeue (9,999x)
+ 39,996 ( 2.00%)          uint64_t b = dequeue(&my_queue);
+399,960 (19.95%)  => fibo.c:dequeue (9,999x)
+ 39,996 ( 2.00%)          uint64_t next_fib = a + b;
  49,995 ( 2.49%)          enqueue(&my_queue, b);
-409,959 (20.43%)  => fibo.c:enqueue (9,999x)
+409,959 (20.45%)  => fibo.c:enqueue (9,999x)
  49,995 ( 2.49%)          enqueue(&my_queue, next_fib);
-409,959 (20.43%)  => fibo.c:enqueue (9,999x)
+409,959 (20.45%)  => fibo.c:enqueue (9,999x)
       .               }
-      .           
+      .
       .               // Dequeue twice to get to the last calculated Fibonacci number
       3 ( 0.00%)      dequeue(&my_queue);
      40 ( 0.00%)  => fibo.c:dequeue (1x)
       4 ( 0.00%)      uint64_t fib = dequeue(&my_queue);
      40 ( 0.00%)  => fibo.c:dequeue (1x)
-      .           
+      .
       .               // printf("Fibonacci number F(%d): %lu\n", FIBO_NUM, fib);
       1 ( 0.00%)      return 0;
       5 ( 0.00%)  }
@@ -130,7 +130,6 @@ The following files chosen for auto-annotation could not be found:
   ./elf/../sysdeps/generic/dl-new-hash.h
   ./elf/../sysdeps/x86/dl-cacheinfo.h
   ./elf/../sysdeps/x86_64/dl-machine.h
-  ./elf/./elf/dl-cache.c
   ./elf/./elf/dl-deps.c
   ./elf/./elf/dl-load.c
   ./elf/./elf/dl-lookup.c
@@ -140,11 +139,12 @@ The following files chosen for auto-annotation could not be found:
   ./elf/./elf/dl-tunables.h
   ./elf/./elf/dl-version.c
   ./elf/./elf/do-rel.h
+  ./elf/./elf/get-dynamic-info.h
   ./elf/./elf/rtld.c
   ./string/../sysdeps/x86_64/multiarch/../multiarch/strcmp-sse2.S
 
 --------------------------------------------------------------------------------
-Ir                 
+Ir
 --------------------------------------------------------------------------------
-1,870,047 (93.19%)  events annotated
+1,870,047 (93.28%)  events annotated
 

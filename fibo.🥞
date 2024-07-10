@@ -51,17 +51,14 @@ typedef struct {
 fun isEmpty(1 queue) {
     get_head(queue, head)
     get_tail(queue, tail)
-    pnk_modulo(h, head, MAX_SIZE)
-    pnk_modulo(t, tail, MAX_SIZE)
-    return (h == t);
+    return (head == tail);
 }
 
 fun isFull(1 queue) {
     get_head(queue, head)
     get_tail(queue, tail)
-    pnk_modulo(h, head, MAX_SIZE)
     pnk_modulo(t, (tail + 1), MAX_SIZE)
-    return (h == t);
+    return (head == t);
 }
 
 export fun enqueue(1 queue, 1 value) {
