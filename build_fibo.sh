@@ -1,8 +1,8 @@
 #!/bin/sh
-gcc -g -o fibo fibo.c
+gcc -O0 -g -o fibo fibo.c
 
-valgrind --tool=callgrind ./fibo
-callgrind_annotate callgrind.out.* > analysis-c.txt
-objdump -D fibo > assembly-c.txt
+valgrind --tool=callgrind --cache-sim=yes --branch-sim=yes ./fibo
+callgrind_annotate callgrind.out.* > ./data/analysis-c.txt
+objdump -D fibo > ./data/assembly-c.txt
 rm -f fibo callgrind.out.*
 

@@ -44,6 +44,24 @@ typedef struct {
     var tail_addr = queue + MAX_SIZE * WORD_SIZE + H_WORD_SIZE;     \
     @transfer32(temp, 1, tail_addr, 1);                            \
 
+/*
+#define get_head(queue, head)                       \
+    var head_addr = queue + MAX_SIZE * WORD_SIZE;   \
+    var head = lds {1} head_addr;                        \
+
+#define set_head(queue, head)                       \
+    var head_addr = queue + MAX_SIZE * WORD_SIZE;   \
+    stw head_addr, head;                            \
+
+#define get_tail(queue, tail)                                       \
+    var tail_addr = queue + MAX_SIZE * WORD_SIZE + WORD_SIZE;     \
+    var tail = lds {1} tail_addr;                                        \
+
+#define set_tail(queue, tail)                                       \
+    var tail_addr = queue + MAX_SIZE * WORD_SIZE + WORD_SIZE;     \
+    stw tail_addr, tail;                                        \
+*/
+
 ///// some helper functions
 #define pnk_modulo(result, a, b)    \
     var result = a & (b - 1);       \
