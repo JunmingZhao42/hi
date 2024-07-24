@@ -1,4 +1,6 @@
 #!/bin/sh
+
+set -e
 gcc -O0 -g -o fibo fibo.c
 
 valgrind --tool=callgrind --cache-sim=yes --branch-sim=yes ./fibo
