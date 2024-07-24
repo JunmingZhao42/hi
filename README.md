@@ -8,9 +8,9 @@ make all [BUILD_DIR=<build dir> CAKE=<cakeml compiler path>]
 
 ### Benchmarking binaries
 
-There are specific Make targets for benchmarking. T
+There are specific Make targets for benchmarking.
 
-hese will put the benchmarking data files in your build directory.
+These will put the benchmarking data files in your build directory.
 
 They will test three programs for a given architecture:
 * the C fibo
