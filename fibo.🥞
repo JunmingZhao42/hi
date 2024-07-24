@@ -20,6 +20,8 @@ typedef struct {
     var i_addr = queue + i * WORD_SIZE; \
     stw i_addr, item;                   \
 
+#ifdef FFI
+
 #define get_head(queue, head)                       \
     var head_addr = queue + MAX_SIZE * WORD_SIZE;   \
     var temp = @base;                               \
@@ -44,7 +46,10 @@ typedef struct {
     var tail_addr = queue + MAX_SIZE * WORD_SIZE + H_WORD_SIZE;     \
     @transfer32(temp, 1, tail_addr, 1);                            \
 
-/*
+#endif
+
+#ifndef FFI
+
 #define get_head(queue, head)                       \
     var head_addr = queue + MAX_SIZE * WORD_SIZE;   \
     var head = lds {1} head_addr;                        \
@@ -60,7 +65,8 @@ typedef struct {
 #define set_tail(queue, tail)                                       \
     var tail_addr = queue + MAX_SIZE * WORD_SIZE + WORD_SIZE;     \
     stw tail_addr, tail;                                        \
-*/
+
+#endif
 
 ///// some helper functions
 #define pnk_modulo(result, a, b)    \
